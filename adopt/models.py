@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class st_model(models.Model):
+class happySquirrel(models.Model):
 
     latitude = models.FloatField(
         max_length=20,
@@ -101,3 +101,7 @@ class st_model(models.Model):
     indifferent = models.BooleanField()
 
     runs_from = models.BooleanField()
+
+    def __str__(self):
+        return self.unique_squirrel_id
+
