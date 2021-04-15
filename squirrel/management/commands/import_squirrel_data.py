@@ -51,13 +51,13 @@ class Command(BaseCommand):
                     primary_fur_color=row[8],
                     color_notes=row[11],
                     location=row[12],
-                    specif_location=row[14]
+                    specific_location=row[14],
                     running=handle_boolean(row[15]),
                     chasing=handle_boolean(row[16]),
                     climbing=handle_boolean(row[17]),
                     eating=handle_boolean(row[18]),
                     foraging=handle_boolean(row[19]),
-                    otheractivities=row[20]
+                    otheractivities=row[20],
                     kuks=handle_boolean(row[21]),
                     quaas=handle_boolean(row[22]),
                     moans=handle_boolean(row[23]),
@@ -66,7 +66,7 @@ class Command(BaseCommand):
                     approaches=handle_boolean(row[26]),
                     indifferent=handle_boolean(row[27]),
                     runs_from=handle_boolean(row[28]),
-                    other_interactions=row[29]
+                    other_interactions=row[29],
                 )
                 if created:
                     squirrel.save()
