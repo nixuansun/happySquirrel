@@ -29,7 +29,7 @@ class happySquirrel(models.Model):
     )
 
     date = models.CharField(
-        max_length=8,
+        max_length=10,
         help_text='Format: YYYY-MM-DD',
     )
 
