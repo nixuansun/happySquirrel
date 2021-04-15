@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class AdoptConfig(AppConfig):
-    name = 'adopt'
+class squirrelConfig(AppConfig):
+    name = 'happySquirrel'
