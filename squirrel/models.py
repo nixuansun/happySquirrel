@@ -44,6 +44,7 @@ class happySquirrel(models.Model):
     age = models.CharField(
         max_length=20,
         choices=AGE_CHOICES,
+        blank=True,
     )
 
     Gray = 'Gray'
@@ -61,7 +62,10 @@ class happySquirrel(models.Model):
     primary_fur_color = models.CharField(
         max_length=20,
         choices=COLOR_CHOICES,
+        blank=True,
     )
+    
+    color_notes = models.TextField()
 
     AG = 'Above Ground'
     GP = 'Ground Plane'
@@ -74,7 +78,10 @@ class happySquirrel(models.Model):
     location = models.CharField(
         max_length=20,
         choices=LOCATION_CHOICES,
+        blank=True,
     )
+    
+    specific_location = models.TextField()
 
     running = models.BooleanField()
 
@@ -85,6 +92,8 @@ class happySquirrel(models.Model):
     eating = models.BooleanField()
 
     foraging = models.BooleanField()
+    
+    other_activities = models.TextField()
 
     kuks = models.BooleanField()
 
@@ -101,7 +110,11 @@ class happySquirrel(models.Model):
     indifferent = models.BooleanField()
 
     runs_from = models.BooleanField()
+    
+    other_interactions = models.TextField()
 
+    
+    
     def __str__(self):
         return self.unique_squirrel_id
 
