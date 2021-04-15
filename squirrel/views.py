@@ -4,7 +4,7 @@ from django.db.models import Avg, Max, Min, Count
 from django.contrib import messages
 
 from .models import happySquirrel
-from .forms import squirrelUpdateForm
+from .forms import squirrelUpdateForm, squirrelAddForm
 
 
 # A view that lists all squirrel sightings with links to view each sighting
@@ -42,15 +42,11 @@ def add(request):
 def stats(request):
 	squirrels = happySquirrel.objects.all()
 	total = len(squirrels)
-	latitude_max = squirrels.aggregate(maximum=Max('latitude'))
-	latitude_min = squirrels.aggregate(minimum=Min('latitude'))
-	longitude_max = squirrels.aggregate(maximum=Max('longitude'))
-	longitude_min = squirrels.aggregate(minimum=Min('longitude'))
+	latitude = squirrels.aggregate(minimum=Min('latitude'), maximum=Max('latitude'))
+	longitude = squirrels.aggregate(minimum=Min('longitude'), maximum=Max('longitude'))
 	context = {
 		'total': total,
-		'max latitude': latitude_max,
-		'min latitude': latitude_min,
-		'max longitude': longitude_max,
-		'min longitude': longitude_min,
+		'latitude': latitude,
+		'longitude': longitude,
 		}
 	return render(request, 'squirrel/stats.html', context)
