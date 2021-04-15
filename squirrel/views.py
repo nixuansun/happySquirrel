@@ -42,11 +42,15 @@ def add(request):
 def stats(request):
 	squirrels = happySquirrel.objects.all()
 	total = len(squirrels)
-	latitude = squirrels.aggregate(minimum=Min('latitude'), maximum=Max('latitude'))
-	longitude = squirrels.aggregate(minimum=Min('longitude'), maximum=Max('longitude'))
+	count_adult = squirrels.filter(age='Adult').count()
+    	count_juvenile = squirrels.filter(age='Juvenile').count()
+    	count_running = squirrels.values('running').annotate(count_running=Count('running')).filter(running="True")
+    	count_eating = squirrels.values('eating').annotate(count_eating=Count('eating')).filter(eating="True")
 	context = {
 		'total': total,
-		'latitude': latitude,
-		'longitude': longitude,
+		'adult': count_adult,
+		'juvenile': count_juvenile,
+		'running': count_running,
+		'eating': count_eating
 		}
 	return render(request, 'squirrel/stats.html', context)
