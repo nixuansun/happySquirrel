@@ -1,7 +1,16 @@
 from django.forms import ModelForm
+
 from .models import happySquirrel
 
-class squirrelForm(ModelForm):
+
+class squirrelUpdateForm(ModelForm):
 	class Meta:
 		model = happySquirrel
-		fields = '__all__'
+		fields = [
+			'latitude',
+			'longitude',
+			'unique_squirrel_id',
+			'shift',
+			'date',
+			'age',
+		]
