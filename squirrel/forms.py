@@ -14,3 +14,9 @@ class squirrelUpdateForm(ModelForm):
 			'date',
 			'age',
 		]
+		
+class squirrelAddForm(ModelForm):
+	class Meta:
+		model = happySquirrel
+		fields = '__all__'
+		
