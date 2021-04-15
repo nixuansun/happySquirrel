@@ -30,7 +30,7 @@ def update(request, squirrel_id):
 
 # A view to create a new sighting
 def add(request):
-    form = squirrelUpdateForm() 
+    form = squirrelAddForm(request.POST) 
     context = {
         'form': form,
     }
@@ -38,14 +38,15 @@ def add(request):
 
 
 
-# # A view with general stats about the sightings
+# A view with general stats about the sightings
 def stats(request):
 	squirrels = happySquirrel.objects.all()
 	total = len(squirrels)
-	lattitude = squirrels.aggregate(minimum=Min('Latitude'),maximum=Max('Latitude'))
-	longitude = squirrels.aggregate(minimum=Min('Longitude'),maximum=Max('Longitude'))
-	context = {'total': total,
-		'lattitude': lattitude,
+	latitude = squirrels.aggregate(minimum=Min('latitude'), maximum=Max('latitude'))
+	longitude = squirrels.aggregate(minimum=Min('longitude'), maximum=Max('longitude'))
+	context = {
+		'total': total,
+		'latitude': latitude,
 		'longitude': longitude,
 		}
 	return render(request, 'squirrel/stats.html', context)
