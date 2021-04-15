@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from django.db.models import Count
+from django.db.models import Avg, Max, Min, Count
 from django.contrib import messages
 
 from .models import happySquirrel
