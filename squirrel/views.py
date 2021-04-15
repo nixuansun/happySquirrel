@@ -42,11 +42,15 @@ def add(request):
 def stats(request):
 	squirrels = happySquirrel.objects.all()
 	total = len(squirrels)
-	latitude = squirrels.aggregate(minimum=Min('latitude'), maximum=Max('latitude'))
-	longitude = squirrels.aggregate(minimum=Min('longitude'), maximum=Max('longitude'))
+	latitude_max = squirrels.aggregate(maximum=Max('latitude'))
+	latitude_min = squirrels.aggregate(minimum=Min('latitude'))
+	longitude_max = squirrels.aggregate(maximum=Max('longitude'))
+	longitude_min = squirrels.aggregate(minimum=Min('longitude'))
 	context = {
 		'total': total,
-		'latitude': latitude,
-		'longitude': longitude,
+		'max latitude': latitude_max,
+		'min latitude': latitude_min,
+		'max longitude': longitude_max,
+		'min longitude': longitude_min,
 		}
 	return render(request, 'squirrel/stats.html', context)
