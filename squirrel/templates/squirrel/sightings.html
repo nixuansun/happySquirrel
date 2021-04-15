@@ -3,9 +3,8 @@
 	<body>
 		<ul>
 		{% for squirrel in squirrels %}
-		<li>{{ squirrel }}</li>
+			<li><a href="{% url 'squirrel: detail' %">{{ squirrel }}</a></li>
 		{% endfor %}
 		</ul>
 	</body>
 </html>
-
