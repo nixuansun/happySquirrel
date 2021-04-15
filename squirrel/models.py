@@ -65,7 +65,10 @@ class happySquirrel(models.Model):
         blank=True,
     )
     
-    color_notes = models.TextField()
+    color_notes = models.CharField(
+        max_length=100, 
+        blank=True,
+    )
 
     AG = 'Above Ground'
     GP = 'Ground Plane'
