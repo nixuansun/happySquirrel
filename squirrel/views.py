@@ -4,7 +4,7 @@ from django.db.models import Count
 from django.contrib import messages
 
 from .models import happySquirrel
-# from .forms import st_form
+from .forms import squirrelForm
 
 
 # A view that lists all squirrel sightings with links to view each sighting
@@ -21,25 +21,24 @@ def sightings(request):
 def update(request, squirrel_id):
     squirrel = get_object_or_404(happySquirrel, unique_squirrel_id=squirrel_id)
     
-    context = {
-        'squirrel': squirrel
-    }
-    return render(request, 'squirrel/update.html', context)
+    if request.method == 'POST':
+        new_squirrel = squirrelForm(request.POST, instance=squirrel)
+        if new_squirrel.is_valid():
+            new_squirrel.save()
+            context = {
+                'new_squirrel': new_squirrel,
+            } 
+            return redirect('/sightings')
+        else:
+            return redirect('/sightings')
+    else:
+        form = squirrelForm(request.POST, instance=squirrel)
+        context = {
+            'form': form,
+        }
+        return render(request, 'squirrel/update.html', context)
 
-#     if request.method == 'POST':
-#         new = st_form(request.POST, instance = original)
-#         if new.is_valid():
-#             new.save()
-#             context = {
-#                     'new':new,
-#                     }
-#             return redirect('/sightings')
-#     else:
-#         form = st_form(instance = original)
-#     context2 = {
-#             'form': form,
-#             }
-#     return render(request, 'squirrel/info.html', context2)
+
 
 
 
