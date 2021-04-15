@@ -39,22 +39,13 @@ def add(request):
 
 
 # # A view with general stats about the sightings
-# def showstats(request):
-#     squirrel = happySquirrel.objects.all()
-#     count_shift = squirrel.values('shift').order_by('shift').annotate(shift_count = Count('shift'))
-#     count_adult = happySquirrel.objects.filter(age='Adult').count()
-#     count_juvenile = happySquirrel.objects.filter(age='Juvenile').count()
-#     count_above = happySquirrel.objects.filter(location='Above Ground').count()
-#     count_plane = happySquirrel.objects.filter(location='Ground Plane').count()
-#     count_running = happySquirrel.values('running').annotate(count_running=Count('running')).filter(running="True")
-#     count_eating = happySquirrel.values('eating').annotate(count_eating=Count('eating')).filter(eating="True")
-#     context = {
-#         'count_shift':count_shift,
-#         'count_adult':count_adult,
-#         'count_juvenile': count_juvenile,
-#         'count_above':count_above,
-#         'count_plane': count_plane,
-#         'count_running':count_running,
-#         'count_eating':count_eating,
-#         }
-#     return render(request,'st/stats.html',context)
+def stats(request):
+	squirrels = happySquirrel.objects.all()
+	total = len(squirrels)
+	lattitude = squirrels.aggregate(minimum=Min('Latitude'),maximum=Max('Latitude'))
+	longitude = squirrels.aggregate(minimum=Min('Longitude'),maximum=Max('Longitude'))
+	context = {'total': total,
+		'lattitude': lattitude,
+		'longitude': longitude,
+		}
+	return render(request, 'squirrel/stats.html', context)
