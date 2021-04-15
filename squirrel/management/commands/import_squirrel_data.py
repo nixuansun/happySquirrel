@@ -57,7 +57,7 @@ class Command(BaseCommand):
                     climbing=handle_boolean(row[17]),
                     eating=handle_boolean(row[18]),
                     foraging=handle_boolean(row[19]),
-                    otheractivities=row[20],
+                    other_activities=row[20],
                     kuks=handle_boolean(row[21]),
                     quaas=handle_boolean(row[22]),
                     moans=handle_boolean(row[23]),
