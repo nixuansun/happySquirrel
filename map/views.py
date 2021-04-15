@@ -4,5 +4,6 @@ from squirrel.models import happySquirrel
 
 # Create your views here.
 def map(request):
-    map_ = happySquirrel.objects.all()[:100]
-    return render(request, 'map/map.html', {"map_squirrel":map_})
+    squirrels = happySquirrel.objects.all()[:100]
+	context = {'squirrels': squirrels}
+	return render(request, 'map/map.html', context)
