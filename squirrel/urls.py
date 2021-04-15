@@ -7,6 +7,5 @@ urlpatterns = [
     path('', views.sightings, name='sightings'),
     path('add/', views.add, name='add'),
     path('<squirrel_id>/', views.update, name='update'),
-    
-#     path('stats/', views.showstats, name='showstats'),
+    path('stats', views.stats, name = 'stats'),
 ]
