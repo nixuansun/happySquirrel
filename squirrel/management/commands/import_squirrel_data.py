@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from adopt.models import happySquirrel
+from squirrel.models import happySquirrel
 import csv
 
 
