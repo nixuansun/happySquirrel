@@ -30,7 +30,7 @@ class happySquirrel(models.Model):
 
     date = models.CharField(
         max_length=8,
-        help_text='Date Format: MMDDYYYY',
+        help_text='Format: YYYY-MM-DD',
     )
 
     Adult = 'Adult'
@@ -84,7 +84,10 @@ class happySquirrel(models.Model):
         blank=True,
     )
     
-    specific_location = models.TextField()
+    specific_location = models.CharField(
+        max_length=100, 
+        blank=True,
+    )
 
     running = models.BooleanField()
 
@@ -96,7 +99,10 @@ class happySquirrel(models.Model):
 
     foraging = models.BooleanField()
     
-    other_activities = models.TextField()
+    other_activities = models.CharField(
+        max_length=100, 
+        blank=True,
+    )
 
     kuks = models.BooleanField()
 
@@ -114,7 +120,10 @@ class happySquirrel(models.Model):
 
     runs_from = models.BooleanField()
     
-    other_interactions = models.TextField()
+    other_interactions = models.CharField(
+        max_length=100, 
+        blank=True,
+    )
 
     
     
