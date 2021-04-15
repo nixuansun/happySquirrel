@@ -42,8 +42,8 @@ class Command(BaseCommand):
                 if happySquirrel.objects.filter(unique_squirrel_id=row[2]).exists():
                     continue
                 squirrel, created = happySquirrel.objects.get_or_create(
-                    latitude=float(row[0]),
-                    longitude=float(row[1]),
+                    latitude=float(row[1]),
+                    longitude=float(row[0]),
                     unique_squirrel_id=row[2],
                     shift=row[4],
                     date=handle_date(row[5]),
