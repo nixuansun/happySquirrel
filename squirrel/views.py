@@ -20,23 +20,12 @@ def sightings(request):
 # A view to update a particular sighting
 def update(request, squirrel_id):
     squirrel = get_object_or_404(happySquirrel, unique_squirrel_id=squirrel_id)
-    
-    if request.method == 'POST':
-        new_squirrel = squirrelUpdateForm(request.POST, instance=squirrel)
-        if new_squirrel.is_valid():
-            new_squirrel.save()
-            context = {
-                'new_squirrel': new_squirrel,
-            } 
-            return redirect('/sightings')
-        else:
-            return redirect('/sightings')
-    else:
-        form = squirrelUpdateForm(request.POST, instance=squirrel)
-        context = {
-            'form': form,
-        }
-        return render(request, 'squirrel/update.html', context)
+
+    form = squirrelUpdateForm(instance=squirrel)
+    context = {
+        'form': form,
+    }
+    return render(request, 'squirrel/update.html', context)
 
 
 
