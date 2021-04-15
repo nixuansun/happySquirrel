@@ -34,7 +34,7 @@ def add(request):
     context = {
         'form': form,
     }
-    return render(request, 'squirrel/sightings/add.html', context)
+    return render(request, 'squirrel/add.html', context)
 
 
 
