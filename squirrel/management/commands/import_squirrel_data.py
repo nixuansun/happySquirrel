@@ -1,6 +1,8 @@
 from django.core.management.base import BaseCommand
-from squirrel.models import happySquirrel
 import csv
+from datetime import date
+
+from squirrel.models import happySquirrel
 
 
 class Command(BaseCommand):
@@ -18,6 +20,16 @@ class Command(BaseCommand):
                 return False
             else:
                 return 'N/A'
+            
+        # create a helper function to handle date
+        def handle_date(text):
+            if len(text) == 8:
+                m = text[:2]
+                d = text[2:4]
+                y = text[4:]
+                return y+"-"+m+"-"+d
+            else:
+                return text
 
         file_path = options['path']
         with open(file_path) as f:
@@ -30,19 +42,22 @@ class Command(BaseCommand):
                 if happySquirrel.objects.filter(unique_squirrel_id=row[2]).exists():
                     continue
                 squirrel, created = happySquirrel.objects.get_or_create(
-                    latitude=row[1],
-                    longitude=row[0],
+                    latitude=float(row[0]),
+                    longitude=float(row[1]),
                     unique_squirrel_id=row[2],
                     shift=row[4],
-                    date=row[5],
+                    date=handle_date(row[5]),
                     age=row[7],
                     primary_fur_color=row[8],
+                    color_notes=row[11],
                     location=row[12],
+                    specif_location=row[14]
                     running=handle_boolean(row[15]),
                     chasing=handle_boolean(row[16]),
                     climbing=handle_boolean(row[17]),
                     eating=handle_boolean(row[18]),
                     foraging=handle_boolean(row[19]),
+                    otheractivities=row[20]
                     kuks=handle_boolean(row[21]),
                     quaas=handle_boolean(row[22]),
                     moans=handle_boolean(row[23]),
@@ -51,6 +66,7 @@ class Command(BaseCommand):
                     approaches=handle_boolean(row[26]),
                     indifferent=handle_boolean(row[27]),
                     runs_from=handle_boolean(row[28]),
+                    other_interactions=row[29]
                 )
                 if created:
                     squirrel.save()
