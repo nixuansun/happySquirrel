@@ -17,10 +17,15 @@ def sightings(request):
 
 
 
-# # A view to update a particular sighting
-# def edit(request, squirrel_id):
-#     squirrel = get_object_or_404(happySquirrel, unique_squirrel_id=squirrel_id)
+# A view to update a particular sighting
+def update(request, squirrel_id):
+    squirrel = get_object_or_404(happySquirrel, unique_squirrel_id=squirrel_id)
     
+    context = {
+        'squirrel': squirrel
+    }
+    return render(request, 'squirrel/update.html', context)
+
 #     if request.method == 'POST':
 #         new = st_form(request.POST, instance = original)
 #         if new.is_valid():
