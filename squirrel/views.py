@@ -59,8 +59,8 @@ def stats(request):
 		'adult': count_adult,
 		'juvenile': count_juvenile,
 		'running': count_running,
-		'eating': count_eating
+		'eating': count_eating,
 		'latitude': lat,
-		'longitude': long
+		'longitude': long,
 	}
 	return render(request, 'squirrel/stats.html', context)
