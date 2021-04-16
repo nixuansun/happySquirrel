@@ -52,11 +52,15 @@ def stats(request):
 	count_juvenile = squirrels.filter(age='Juvenile').count()
 	count_running = squirrels.values('running').annotate(count_running=Count('running')).filter(running="True")
 	count_eating = squirrels.values('eating').annotate(count_eating=Count('eating')).filter(eating="True")
+	lat=squirrels.aggregate(min_latitude=Min('latitude'),max_latitude=Max('latitude'),average_latitude=Avg('latitude'))
+    	long=squirrels.aggregate(min_longitude=Min('longitude'),max_longitude=Max('longitude'),average_longitude=Avg('longitude'))
 	context = {
 		'total': total,
 		'adult': count_adult,
 		'juvenile': count_juvenile,
 		'running': count_running,
 		'eating': count_eating
+		'latitude': lat,
+		'longitude': long
 	}
 	return render(request, 'squirrel/stats.html', context)
