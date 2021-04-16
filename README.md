@@ -3,7 +3,7 @@
 This is an outstanding web application that helps us to track down cute squirrel in Central Park. With imported data, users can keep track of all the known squirrels and be able to add, update, and view squirrel data into our database.
 
 ## Group Information
-- Project Group 34
+- Project Group 35
 - UNIs: [ss6125, ns3535]
 
 ## Command
