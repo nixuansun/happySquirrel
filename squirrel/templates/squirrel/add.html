@@ -3,9 +3,11 @@
 	<body>
 	<h2><u>Create A New Squirrel Sighting</u></h2>
 	<form action="" method="post">
-  	{% csrf_token %}
-  	{{ form.as_p }}
-  	<input type="submit" value="Submit">
-  </form>
-</body>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<a href="sightings/">
+			<input type="submit" value="Submit">
+		</a>
+	</form>
+	</body>
 </html>
