@@ -34,7 +34,7 @@ def add(request):
 		form = squirrelAddForm(request.POST) 
 		if form.is_valid():
 			form.save()
-			return redirect('/sightings/')
+			return redirect('f/sightings/')
 	else:
 		form = squirrelAddForm()
 		context = {
