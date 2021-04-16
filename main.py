@@ -1,3 +1,3 @@
-from final.wsgi import application
+from project.wsgi import application
 
 app = application
