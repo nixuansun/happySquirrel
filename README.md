@@ -27,7 +27,8 @@ $ python manage.py export_squirrel_data export_data.csv
    - Locate at: ```/sightings/stats```
 
 ## Links
-- [To view map](35.186.177.250/map)
-- [To view all squirrel sightings](35.186.177.250/sightings)
-- [To add a new squirrel sighting](35.186.177.250/sightings/add)
-- [To view general stats of squirrel sightings](35.186.177.250/sightings/stats)
+- Deployed Link: https://moonlit-buckeye-303409.ue.r.appspot.com
+- [To view map](https://moonlit-buckeye-303409.ue.r.appspot.com/map)
+- [To view all squirrel sightings](https://moonlit-buckeye-303409.ue.r.appspot.com/sightings)
+- [To add a new squirrel sighting](https://moonlit-buckeye-303409.ue.r.appspot.com/sightings/add)
+- [To view general stats of squirrel sightings](https://moonlit-buckeye-303409.ue.r.appspot.com/sightings/stats)
