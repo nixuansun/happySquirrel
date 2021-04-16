@@ -30,11 +30,17 @@ def update(request, squirrel_id):
 
 # A view to create a new sighting
 def add(request):
-    form = squirrelAddForm(request.POST) 
-    context = {
-        'form': form,
-    }
-    return render(request, 'squirrel/add.html', context)
+	if request.method=='Post':
+		form = squirrelAddForm(request.POST) 
+		if form.is_valid():
+			form.save()
+			return redirect('/sightings/')
+    else:
+		form = squirrelAddForm()
+		context = {
+			'form': form,
+		}
+		return render(request, 'squirrel/add.html', context)
 
 
 
