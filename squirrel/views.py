@@ -43,9 +43,9 @@ def stats(request):
 	squirrels = happySquirrel.objects.all()
 	total = len(squirrels)
 	count_adult = squirrels.filter(age='Adult').count()
-    count_juvenile = squirrels.filter(age='Juvenile').count()
-    count_running = squirrels.values('running').annotate(count_running=Count('running')).filter(running="True")
-    count_eating = squirrels.values('eating').annotate(count_eating=Count('eating')).filter(eating="True")
+	count_juvenile = squirrels.filter(age='Juvenile').count()
+	count_running = squirrels.values('running').annotate(count_running=Count('running')).filter(running="True")
+	count_eating = squirrels.values('eating').annotate(count_eating=Count('eating')).filter(eating="True")
 	context = {
 		'total': total,
 		'adult': count_adult,
