@@ -2,7 +2,7 @@
 <html>
 	<body>
 		<h2><u>View and Update Squirrel Sighting</u></h2>
-		<form action="" method="post">
+		<form>
   			{% csrf_token %}
   			{{ form.as_p }}
 			<a href="/sightings/">
