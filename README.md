@@ -9,11 +9,11 @@ It's an web application that can import the 2018 Central Park Squirrel Census da
 ## Command
 1. Import command:
 ```
-$ python manage.py import_squirrel_data /path/to/file.csv
+$ python manage.py import_squirrel_data 2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv
 ```
 2. Export command:
 ```
-$ python manage.py export_squirrel_data /path/to/file.csv
+$ python manage.py export_squirrel_data export_data.csv
 ```
 3. View the location of squirrel sightings on a map:
    - Locate at: ```/map```
