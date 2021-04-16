@@ -1,11 +1,13 @@
 <!doctype html>
 <html>
 	<body>
-	<h2><u>View and Update Squirrel Sighting</u></h2>
-	<form action="" method="post">
-  	{% csrf_token %}
-  	{{ form.as_p }}
-  	<input type="submit" value="Submit">
-  </form>
-</body>
+		<h2><u>View and Update Squirrel Sighting</u></h2>
+		<form action="" method="post">
+  			{% csrf_token %}
+  			{{ form.as_p }}
+			<a href="/sightings/">
+  				<input type="submit" value="Submit">
+			</a>
+		</form>
+	</body>
 </html>
