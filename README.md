@@ -27,7 +27,7 @@ $ python manage.py export_squirrel_data export_data.csv
    - Locate at: ```/sightings/stats```
 
 ## Links
-- [To view map](https://35.186.177.250/map)
-- [To view all squirrel sightings](https://35.186.177.250/sightings)
-- [To add a new squirrel sighting](https://35.186.177.250/sightings/add)
-- [To view general stats of squirrel sightings](https://35.186.177.250/sightings/stats)
+- [To view map](35.186.177.250/map)
+- [To view all squirrel sightings](35.186.177.250/sightings)
+- [To add a new squirrel sighting](35.186.177.250/sightings/add)
+- [To view general stats of squirrel sightings](35.186.177.250/sightings/stats)
