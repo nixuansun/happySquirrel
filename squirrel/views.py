@@ -56,10 +56,10 @@ def stats(request):
 	long=squirrels.aggregate(min_longitude=Min('longitude'),max_longitude=Max('longitude'),average_longitude=Avg('longitude'))
 	context = {
 		'total': total,
-		'adult': count_adult,
-		'juvenile': count_juvenile,
-		'running': count_running,
-		'eating': count_eating,
+		'count_adult': count_adult,
+		'count_juvenile': count_juvenile,
+		'count_running': count_running,
+		'count_eating': count_eating,
 		'lat': lat,
 		'long': long,
 	}
