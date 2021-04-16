@@ -1,6 +1,6 @@
 ## Project Description
 Users can keep track of all the known squirrels and plans to start with Central Park. 
-It's an web application that can import the 2018 Central Park Squirrel Census data and allow his team to add, update, and view squirrel data.
+This is an outstanding web application that helps us to track down cute squirrel in Central Park can import the 2018 Central Park Squirrel Census data and allow his team to add, update, and view squirrel data.
 
 ## Group Information
 - Project Group 34
