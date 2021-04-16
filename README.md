@@ -16,12 +16,18 @@ $ python manage.py import_squirrel_data /path/to/file.csv
 $ python manage.py export_squirrel_data /path/to/file.csv
 ```
 3. View the location of squirrel sightings on a map:
-   - Locate at: ```https://35.186.177.250/map```
+   - Locate at: ```/map```
 4. View the list of all squirrel sightings:
-   - Locate at: ```https://35.186.177.250/sightings```
+   - Locate at: ```/sightings```
 5. Update a particular squirrel sighting:
-   - Locate at: ```https://35.186.177.250/sightings/<unique-squirrel-id>```
+   - Locate at: ```/sightings/<unique-squirrel-id>```
 6. Add a new squirrel sighting:
-   - Locate at: ```https://35.186.177.250/sightings/add```
+   - Locate at: ```/sightings/add```
 7. View the general stats of squirrel sightings:
-   - Locate at: ```https://35.186.177.250/sightings/stats```
+   - Locate at: ```/sightings/stats```
+
+## Links
+- [To view map](https://35.186.177.250/map)
+- [To view all squirrel sightings](https://35.186.177.250/sightings)
+- [To add a new squirrel sighting](https://35.186.177.250/sightings/add)
+- [To view general stats of squirrel sightings](https://35.186.177.250/sightings/stats)
